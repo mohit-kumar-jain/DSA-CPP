@@ -5,11 +5,9 @@ void print(int n){
     if (n<=0)
     {
         return;
-    }
-    int i = 0;
-    i++; 
+    } 
+    cout<<n<<endl;
     print(n-1);
-    cout<<n-n+i<<endl;
 }            
 int main() {
     print(5);
