@@ -2,6 +2,7 @@
 using namespace std;
 
 // Brute - Force Method.T.C -> O(n*n).  S.C -> O(1).
+// Using loops;
 // int ones_Appeared(int arr[],int n){
 //     for (int i = 0; i < n; i++)
 //     {
@@ -20,6 +21,7 @@ using namespace std;
 // }
 
 // Better Method.T.C -> O(3n).  S.C -> O(maxi+1).
+// Using Hashing.
 // int ones_Appeared(int arr[],int n){
 //     int maxi = 0;
 //     for (int i = 0; i < n; i++)
@@ -41,6 +43,7 @@ using namespace std;
 // }
 
 // Optimal Method.T.C -> O(n).  S.C -> O(1).
+// Using XOR.
 int ones_Appeared(int arr[],int n){
     int Xor = 0;
     for (int i = 0; i < n; i++)
