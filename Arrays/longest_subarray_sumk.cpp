@@ -38,7 +38,7 @@ using namespace std;
 //             int length = i - preSumMap[rem];
 //             maxLength = max(length,maxLength);
 //         }
-//             preSumMap[sum] = i;
+//         preSumMap[sum] = i;
 //     }
 //     return maxLength;
 // }
@@ -76,25 +76,20 @@ int longest_SubArray(int arr[], int n, int k)
     int left = 0, right = 0;
     int sum = 0;
     int maxLength = 0;
-
     while(right < n)
     {
         sum += arr[right];
-
         while(left <= right && sum > k)
         {
             sum -= arr[left];
             left++;
         }
-
         if(sum == k)
         {
             maxLength = max(maxLength, right - left + 1);
         }
-
         right++;
     }
-
     return maxLength;
 }
 
