@@ -18,7 +18,7 @@ using namespace std;
 
 // Optimal.T.C -> O(n) ,S.C -> O(1).
 int longestSubarraySum(int arr[],int n){
-    int maxxi = INT_MIN,sum =0;
+    int maxxi = arr[0],sum =0;
     for (int i = 0; i < n; i++)
     {
         sum += arr[i];
