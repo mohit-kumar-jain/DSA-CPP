@@ -22,11 +22,14 @@ int longestSubarraySum(int arr[],int n){
     for (int i = 0; i < n; i++)
     {
         sum += arr[i];
+        if (sum > maxxi)
+        {
+            maxxi = sum;
+        }
         if (sum < 0)
         {
             sum = 0;
         }
-        maxxi = max(maxxi,sum);
     }
     return maxxi;
 }
@@ -38,6 +41,6 @@ int main()
     int arr[n];
     for (int i = 0; i < n; i++)
         cin >> arr[i];
-    cout<<longestSubarraySum(arr, n)<<endl;;
+    cout<<longestSubarraySum(arr, n)<<endl;
     return 0;
 }
