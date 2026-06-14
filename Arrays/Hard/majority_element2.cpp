@@ -47,7 +47,6 @@ using namespace std;
 // }
 
 // Optimal. T.C -> O(n),S.C -> O(1).
-
 vector<int> majorityElement(vector<int>& nums)
 {
     int n = nums.size(); 
@@ -92,7 +91,6 @@ vector<int> majorityElement(vector<int>& nums)
     }
     return result;
 }
-
 
 int main() {
     vector<int> arr = {11,11,22,33,11};
