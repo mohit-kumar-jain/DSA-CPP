@@ -46,7 +46,7 @@ using namespace std;
 // }
 
 // Optimal. T.C -> O(n*n)+O(nlogn), S.C -> O(1).
-vector<vector<int>> sum3(vector<int> nums){
+vector<vector<int>> sum3(vector<int>& nums){
     sort(nums.begin(),nums.end());
     vector<vector<int>> ans;
     int n = nums.size();
@@ -55,7 +55,7 @@ vector<vector<int>> sum3(vector<int> nums){
         if(i>0 && nums[i] == nums[i-1]) continue;
         int j = i+1;
         int k = n-1;
-        while(j<k)
+        while(j < k)
         {
             int sum = nums[i] + nums[j];
             sum += nums[k];
@@ -64,8 +64,8 @@ vector<vector<int>> sum3(vector<int> nums){
                 ans.push_back(res);
                 j++;
                 k--;
-                while(nums[j] == nums[j-1]) j++;
-                while(nums[k] == nums[k-1]) k++;
+                while(j < k && nums[j] == nums[j-1]) j++;
+                while(j < k && nums[k] == nums[k+1]) k--;
                 }
                 else if(sum > 0){
                 k--;
