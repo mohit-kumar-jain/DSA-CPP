@@ -14,7 +14,8 @@ using namespace std;
 // }
 
 // Optimal. T.C -> O(logn), S.C -> O(1).
-int rotateSearch(vector<int> &nums, int t)
+
+bool rotateSearch(vector<int> &nums, int t)
 {
     int n = nums.size();
     int low = 0, high = n - 1;
@@ -23,7 +24,12 @@ int rotateSearch(vector<int> &nums, int t)
         int mid = low + (high - low) / 2;
         if (nums[mid] == t)
         {
-            return mid;
+            return true;
+        }
+        if(nums[low] == nums[mid] && nums[mid] == nums[high])
+        {
+            low++,high--;
+            continue;
         }
         else if (nums[low] <= nums[mid])
         { // Left half sorted
@@ -48,12 +54,12 @@ int rotateSearch(vector<int> &nums, int t)
             }
         }
     }
-    return -1;
+    return false;
 }
 
 int main()
 {
-    vector<int> arr = {7, 8, 9, 1, 2, 3};
+    vector<int> arr = {3,3,1,1,1,2,2,3,3};
     int target;
     cin >> target;
     cout << rotateSearch(arr, target) << endl;
