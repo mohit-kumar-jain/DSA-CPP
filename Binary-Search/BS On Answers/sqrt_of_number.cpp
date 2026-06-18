@@ -1,6 +1,6 @@
-#include<bits/stdc++.h>      
+#include <bits/stdc++.h>
 using namespace std;
-             
+
 // Brute. T.C -> O(sqrt(n)), S.C -> O(1).
 // int floorSqrt(int nums){
 //     if(nums == 0) return 0;
@@ -15,25 +15,34 @@ using namespace std;
 // }
 
 // Optimal. T.C -> O(logn), S.C -> O(1).
-int floorSqrt(int nums){
-    if(nums == 0) return 0;
-    int low = 1,high = nums, ans = -1;
-    while(low <= high){
-        int mid = low + (high - low) / 2;
-        if((1LL * mid * mid) == nums){
+int floorSqrt(int nums)
+{
+    if (nums < 2)
+        return nums;
+    int low = 1, high = (nums) / 2, ans = -1;
+    while (low <= high)
+    {
+        long long mid = low + (high - low) / 2;
+        long long sq = mid * mid;
+        if (sq == nums)
+        {
             return mid;
-        }else if((1LL * mid * mid) <= nums){
+        }
+        else if (sq <= nums)
+        {
             ans = mid;
-            low = (mid + 1);
-        }else{
+            low = mid + 1;
+        }
+        else
+        {
             high = mid - 1;
         }
     }
     return ans;
 }
 
-
-int main() {
+int main()
+{
     int num;
     cin >> num;
     cout << floorSqrt(num);
