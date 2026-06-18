@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Brute. T.C -> O(maxi*n), S.C -> O(1).
+// Brute. T.C -> O((max(arr[])-min(arr[])+1) * N), S.C -> O(1).
 
 // bool bloomF(vector<int> &a, int day, int m, int k)
 // {
@@ -45,7 +45,7 @@ using namespace std;
 //     return -1;
 // }
 
-// Optimal. T.C -> O(maxi*logn), S.C -> O(1).
+// Optimal. T.C -> O(log(max(arr[])-min(arr[])+1) * N), , S.C -> O(1).
 bool bloomF(vector<int> &a, int day, int m, int k)
 {
     int bouquet = 0, cnt = 0;
