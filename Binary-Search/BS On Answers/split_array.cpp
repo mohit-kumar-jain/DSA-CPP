@@ -31,7 +31,7 @@ using namespace std;
 //     return -1;
 // }
 
-// Brute. T.C -> O(N) + O((sum-max+1)), S.C -> O(1).
+// Optimal. T.C -> O(N) + O(log(sum-max+1)), S.C -> O(1).
 
 bool isPossible(vector<int>& nums, int numbers, int k){
     int n = nums.size();
