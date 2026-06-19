@@ -11,8 +11,9 @@ using namespace std;
 //             cow++;
 //             last = stalls[i];
 //         }
+//          if (cow >= cows) return true;
 //     }
-//     return cow >= cows ;
+//     return  false;
 // }
 
 // int minimumDistance(vector<int>& stalls, int cows){
