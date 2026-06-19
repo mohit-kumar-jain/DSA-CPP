@@ -27,7 +27,7 @@ int findKthPositive(vector<int>& nums,int k){
             high = mid - 1;
         }
     }
-    return high + k +1;
+    return high + k +1; // (or) low + k
 }
 
 int main()
