@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Optimal. T.C. -> O(1), S.C. -> O(1).
+// Optimal. T.C. -> O(num*number of digits(input)), S.C. -> O(no,of,digits in factorial).
 vector<int> factorial(int num)
 {
     vector<int> res(1,1);
