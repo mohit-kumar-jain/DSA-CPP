@@ -19,17 +19,15 @@ string sortVowels(string& s){
     }
     for (int i = 0; i < 26; i++)
     {
-        char c = 'A' + i;
         while(upper[i]){
-            res += c;
+            res += 'A' + i;
             upper[i]--;
         }
     }
     for (int i = 0; i < 26; i++)
     {
-        char c = 'a' + i;
         while(lower[i]){
-            res += c;
+            res += 'a' + i;
             lower[i]--;
         }
     }
