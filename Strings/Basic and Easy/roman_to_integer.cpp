@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>       
 using namespace std;
-                   
+
+// Optimal. T.C. -> O(n), S.C. -> O(1).
+
 int roman(char c) {
     switch (c) {
         case 'I': return 1;
@@ -13,6 +15,7 @@ int roman(char c) {
     }
     return 0;
 }
+
 int romanToInteger(string s){
     int sum = 0,index = 0;
     while(index < s.size() - 1){
