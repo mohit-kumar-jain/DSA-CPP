@@ -1,5 +1,23 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+// Brute. T.C. -> O(n*m), S.C -> O(1).
+// int stringMatch(string s, string s1) {
+//     int n = s.size();
+//     int m = s1.size();
+//     for (int i = 0; i <= n - m; i++) {
+//         bool found = true;
+//         for (int j = 0; j < m; j++) {
+//             if (s[i + j] != s1[j]) {
+//                 found = false;
+//                 break;
+//             }
+//         }
+//         if (found)
+//             return i;
+//     }
+//     return -1;
+// }
+
 // Optimal. T.C. -> O(m+n), S.C -> O(m).
 void LPS(vector<int>& lps, string s){
     int n = s.size();
@@ -21,6 +39,7 @@ void LPS(vector<int>& lps, string s){
         }
     }
 }
+
 int stringMatch(string s,string s1){
     int first = 0, second = 0,n = s.size();
     vector<int> lps(s1.size(),0);
@@ -44,10 +63,11 @@ int stringMatch(string s,string s1){
     }
     return -1;
 }
-                   
-int main() {
+
+int main()
+{
     string s = "abcdefgabcdeabababc";
     string s2 = "cdeabab";
-    cout << stringMatch(s,s2) << endl;
+    cout << stringMatch(s, s2) << endl;
     return 0;
 }
