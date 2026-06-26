@@ -2,58 +2,59 @@
 using namespace std;
 
 // Brute. T.C. -> O(N), S.C. -> O(N).
-// string reverseWords(string s){
-//     vector<string> words;
-//     string word = "";
-//     for (int i = 0; i < s.size(); i++)
-//     {
-//         if(s[i] != ' '){
-//             word += s[i];
-//         }else if(!word.empty()){
-//             words.push_back(word);
-//             word = ' ';
-//         }
-//     }
-//     if(!word.empty()){
-//         words.push_back(word);
-//     }
-//     reverse(words.begin(),words.end());
+// string reverseWords(string s)
+// {
 //     string result = "";
-//     for (int i = 0; i < words.size(); i++) {
-//         result += words[i];
-//         if (i < words.size() - 1) {
+//     int i = s.size() - 1;
+//     while (i >= 0)
+//     {
+//         while (i >= 0 && s[i] == ' ')
+//         {
+//             i--;
+//         }
+//         if (i < 0)
+//             break;
+//         int end = i;
+//         while (i >= 0 && s[i] != ' ')
+//         {
+//             i--;
+//         }
+//         string word = s.substr(i + 1, end - i);
+//         if (!result.empty())
+//         {
 //             result += " ";
 //         }
+//         result += word;
 //     }
 //     return result;
 // }
 
 // Optimal. T.C. -> O(N), S.C. -> O(1).
+
 string reverseWords(string s)
 {
-    string result = "";
-    int i = s.size() - 1;
-    while (i >= 0)
+    reverse(s.begin(), s.end());
+    int n = s.size();
+    int left = 0;
+    int right = 0;
+    int i = 0;
+    while (i < n)
     {
-        while (i >= 0 && s[i] == ' ')
-        {
-            i--;
-        }
-        if (i < 0)
+        while (i < n && s[i] == ' ')
+            i++;
+        if (i == n)
             break;
-        int end = i;
-        while (i >= 0 && s[i] != ' ')
+        while (i < n && s[i] != ' ')
         {
-            i--;
+            s[right++] = s[i++];
         }
-        string word = s.substr(i + 1, end - i);
-        if (!result.empty())
-        {
-            result += " ";
-        }
-        result += word;
+        reverse(s.begin() + left, s.begin() + right);
+        s[right++] = ' ';
+        left = right;
+        i++;
     }
-    return result;
+    s.resize(right - 1);
+    return s;
 }
 
 int main()
