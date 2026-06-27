@@ -35,7 +35,7 @@ void twoSum(int arr[], int n, int k)
     cout << "No";
 }
 
-// Optimal Method.T.C -> O(n) ,S.C -> O(1). To return yes or no as answer.
+// Optimal Method.T.C -> O(nlogn) ,S.C -> O(1). To return yes or no as answer.
 // Using two pointers.
 // void twoSum(vector<int> arr,int n,int k){
 //     int left = 0, right = n-1;

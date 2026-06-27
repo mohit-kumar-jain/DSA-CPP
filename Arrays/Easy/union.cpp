@@ -18,6 +18,7 @@ using namespace std;
 //     }
 // }
 
+// Better. Time complexity -> O((m+n)logn(m+n)) , Space complexity -> O(m+n).
 // Using map
 // void union_Arrays(int arr[],int arr2[],int m,int n){
 //     vector<int> unioun;
@@ -38,7 +39,7 @@ using namespace std;
 //     }
 // }
 
-// Optimal method. Time Complexity -> O(), Space complexity -> O().
+// Optimal method. Time Complexity -> O(m+n), Space complexity -> O(m+n).
 // Using Two - Pointer.
 void union_Arrays(int arr[], int arr2[], int m, int n)
 {

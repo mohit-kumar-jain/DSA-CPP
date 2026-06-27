@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 // Brute - Force Method. Time Complexity -> O(n),Space complexity = O(n).
 // void moveZeroes(int arr[], int n)
@@ -26,10 +26,21 @@ using namespace std;
 // Optimal Method. Time Complexity -> O(n),Space complexity = O(1).
 void moveZeroes(int arr[], int n)
 {
-    int j = 0;
-    for(int i = 0; i < n; i++)
+    int j = -1;
+
+    for (int i = 0; i < n; i++)
     {
-        if(arr[i] != 0)
+        if (arr[i] == 0)
+        {
+            j = i;
+            break;
+        }
+    }
+    if (j == -1)
+        return;
+    for (int i = j + 1; i < n; i++)
+    {
+        if (arr[i] != 0)
         {
             swap(arr[i], arr[j]);
             j++;
@@ -37,22 +48,24 @@ void moveZeroes(int arr[], int n)
     }
 }
 
-void printArray(int arr[],int n){
+void printArray(int arr[], int n)
+{
     for (int i = 0; i < n; i++)
     {
-        cout<<arr[i]<<" ";
+        cout << arr[i] << " ";
     }
 }
 
-int main() {
+int main()
+{
     int n;
-    cin>>n;
+    cin >> n;
     int arr[n];
     for (int i = 0; i < n; i++)
     {
-        cin>>arr[i];
+        cin >> arr[i];
     }
-    moveZeroes(arr,n);
-    printArray(arr,n);
+    moveZeroes(arr, n);
+    printArray(arr, n);
     return 0;
 }

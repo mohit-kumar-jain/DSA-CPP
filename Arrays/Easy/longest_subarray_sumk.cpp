@@ -43,31 +43,6 @@ using namespace std;
 //     return maxLength;
 // }
 
-// Better Method. T.C -> O(n*logn).  S.C -> O(n).
-// if Array has negatives,zeroes and positive numbers. 
-// int longest_SubArray(int arr[],int n,int k){
-//     int sum = 0,maxLength = 0;
-//     map<int,int>preSumMap;
-//     for (int i = 0; i < n; i++)
-//     {
-//         sum += arr[i];
-//         if (sum == k)
-//         {
-//             maxLength = max(maxLength,i+1);
-//         }
-//         int rem = sum - k;
-//         if (preSumMap.find(rem) != preSumMap.end())
-//         {
-//             int length = i - preSumMap[rem];
-//             maxLength = max(length,maxLength);
-//         }
-//         if(preSumMap.find(sum) != preSumMap.end()){
-//             preSumMap[sum] = i;
-//         }
-//     }
-//     return maxLength;
-// }
-
 // Optimal Method. T.C -> O(2n).  S.C -> O(1).
 // olny positive numbers. Using 2 pointer.
 

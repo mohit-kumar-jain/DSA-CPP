@@ -89,7 +89,7 @@ void secondLargest(int arr[],int n){
             seclargest = largest;
             largest = arr[i];
         }
-        if(arr[i]<largest && arr[i]> seclargest){
+        else if(arr[i]<largest && arr[i]> seclargest){
             seclargest = arr[i];
         }
         
