@@ -12,7 +12,6 @@ using namespace std;
 //     {
 //         st.insert(arr2[i]);
 //     }
-    
 //     for(auto it:st){
 //         cout<<it<<" ";
 //     }
