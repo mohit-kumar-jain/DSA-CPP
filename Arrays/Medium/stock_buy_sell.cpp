@@ -18,6 +18,7 @@ int stockbuySell(vector<int> &prices)
 // Optimal. T.C -> O(n), S.C -> O(1).
 int stockbuySell(int arr[], int n)
 {
+    
     int maxi = 0, mini = arr[0];
     for (int i = 1; i < n; i++)
     {
