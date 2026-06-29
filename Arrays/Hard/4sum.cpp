@@ -47,7 +47,7 @@ using namespace std;
 //                     sort(res.begin(),res.end());
 //                     st.insert(res);
 //                 }
-//                 hashh.insert(k);
+//                 hashh.insert(nums[k]);
 //             }
 //         } 
 //     }

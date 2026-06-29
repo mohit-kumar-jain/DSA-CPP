@@ -2,7 +2,7 @@
 using namespace std;
 
 // Brute. T.C -> O(n*n),S.C -> O(1).
-// int countSubarray(vector<int> nums,int k){
+// int countSubarray(vector<int>& nums,int k){
 //     int n = nums.size();
 //     int cnt = 0;
 //     for (int i = 0; i < n; i++)
@@ -20,7 +20,7 @@ using namespace std;
 // }
 
 // Optimal. T.C -> O(n),S.C -> O(1).
-int countSubarray(vector<int> nums,int k){
+int countSubarray(vector<int>& nums,int k){
     int n = nums.size();
     int Xorr = 0;
     unordered_map<int,int> mpp;
