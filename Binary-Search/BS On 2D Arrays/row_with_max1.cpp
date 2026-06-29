@@ -23,28 +23,34 @@ using namespace std;
 
 // Optimal. T.C -> O(n*logm), S.C -> O(1).
 
-int lowerBound(vector<int>& row,int m,int k){
-    int max_cnt = -1;
-    int cnt  = 0;
-    for (int i = 0; i < m; i++)
+int lowerBound(vector<int> &arr, int n, int x)
+{
+    int low = 0, high = n - 1;
+    int ans = n; 
+    while (low <= high)
     {
-        if(row[i] >= k){
-            cnt++;
+        int mid = (low + high) / 2;
+        if (arr[mid] >= x)
+        {
+            ans = mid;
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1; 
         }
     }
-    if(cnt > max_cnt){
-        max_cnt = cnt;
-    }
-    return cnt;
+    return ans;
 }
 
 int rowWithMax1s(vector<vector<int>> &matrix, int n, int m)
 {
-    int cnt_max = 0,index = -1;
+    int cnt_max = 0, index = -1;
     for (int i = 0; i < n; i++)
     {
-        int cnt1 = lowerBound(matrix[i],m,1);
-        if(cnt1 > cnt_max){
+        int cnt1 = m - lowerBound(matrix[i], m, 1);
+        if (cnt1 > cnt_max)
+        {
             cnt_max = cnt1;
             index = i;
         }
@@ -54,7 +60,7 @@ int rowWithMax1s(vector<vector<int>> &matrix, int n, int m)
 
 int main()
 {
-    vector<vector<int>> matrix = {{0, 0,0}, {0, 0, 1}, {1, 1, 1}};
+    vector<vector<int>> matrix = {{0, 0, 0}, {0, 0, 1}, {1, 1, 1}};
     int n = 3, m = 3;
     cout << "The row with maximum no. of 1's is: " << rowWithMax1s(matrix, n, m) << endl;
 }
