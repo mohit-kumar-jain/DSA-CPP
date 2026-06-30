@@ -33,7 +33,8 @@ using namespace std;
 // vector<int> searchEle(vector<vector<int>>& a,int t){
 //     for (int i = 0; i < a.size(); i++)
 //     {
-//         int j = (binarySearch(a[i],t));
+//         if (matrix[i][0] <= t && t <= matrix[i][m - 1]) {
+//                  return binarySearch(matrix[i], t);
 //         if(j != -1){
 //             return {i,j};
 //         }
@@ -45,22 +46,20 @@ using namespace std;
 vector<int> searchEle(vector<vector<int>> &a, int t)
 {
     int n = a.size(), m = a[0].size();
-    int col = m - 1, row = 0;
-    while(row < n && col >= 0){
-        if (a[row][col] == t)
-        {
-            return {row, col};
+    int low = 0, high = n*m-1;
+    while(low <= high){
+        int mid = low + (high - low) / 2;
+        int row = row / mid;
+        int col = col / mid;
+        if(a[row][col] == t){
+            return{row,col};
+        }else if(a[row][col] < t){
+            low++;
+        }else{
+            high--;
         }
-        else if (a[row][col] > t)
-        {
-            col--;
-        }
-        else
-        {
-            row++;
-        }
-        return {-1, -1};
     }
+    return {-1,-1};
 }
 
 int main()

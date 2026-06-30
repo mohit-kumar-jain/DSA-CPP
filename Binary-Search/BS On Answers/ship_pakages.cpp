@@ -26,7 +26,7 @@ using namespace std;
 //         if(mindays(nums, i, days))
 //             return i;
 //     }
-//     return -1;
+//     return maxCapacity;
 // }
 
 // Optimal. T.C -> O(logn * N), S.C -> O(1).

@@ -46,14 +46,17 @@ using namespace std;
 vector<int> searchEle(vector<vector<int>>& a,int t){
     int n = a.size();
     int m = a[0].size();
-    int row = 0,col = m-1;
-    while(row < n && col >= 0){
+    int low = 0, high = n*m-1;
+    while(low <= high){
+        int mid = low + (high - low) / 2;
+        int row = row / mid;
+        int col = col / mid;
         if(a[row][col] == t){
-            return {row,col};
+            return{row,col};
         }else if(a[row][col] < t){
-            row++;
+            low++;
         }else{
-            col--;
+            high--;
         }
     }
     return {-1,-1};
