@@ -38,7 +38,7 @@ int findK(vector<int> &a, vector<int> &b, int k){
     int maxii = n + m;
     if(n > m) return findK(b,a,k);
     int left = k;
-    int low = max(0,k-m), high = max(k,n);
+    int low = max(0,k-m), high = min(k,n);
     while(low <= high){
         int mid1 = low + (high - low) / 2;
         int mid2 = left - mid1;
