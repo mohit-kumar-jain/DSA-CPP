@@ -16,9 +16,28 @@ class Node{
 };
 
 Node* addLL(Node* head1, Node* head2){
-    Node* res;
-
-    return res;
+    Node* dummy = new Node(-1);
+    Node* curr = dummy;
+    Node* t1 = head1;
+    Node* t2 = head2;
+    int carry = 0;
+    while(t1 || t2){
+        int sum = carry;
+        if(t1) sum += t1->data;
+        if(t2) sum += t2->data;
+        sum += carry;
+        carry = sum / 10;
+        Node* temp = new Node(sum %10);
+        curr -> next = temp;
+        curr = curr->next;
+        if(t1) t1 = t1->next;
+        if(t2) t2 = t2->next;
+    }
+    if(carry){
+        Node* temp = new Node(carry);
+        curr -> next = temp;
+    }
+    return dummy -> next;
 }
 
 Node* createList(vector<int> nums){
