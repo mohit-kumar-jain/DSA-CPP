@@ -16,36 +16,40 @@ class Node {
 };
 
 // Brute. T.C -> O(N), S.C -> O(N).
-// Node* detectLoop(Node* head){
+// int detectLengthLoop(Node* head){
 //     Node* temp = head;
 //     unordered_map<Node* , int> mpp;
+//     int len = 0;
 //     while(temp){
 //         if(mpp.find(temp) != mpp.end()){
-//             return temp;
+//             return len - mpp[temp];
 //         }
-//         mpp[temp]++;
+//         mpp[temp] = len;
 //         temp = temp->next;
+//         len++;
 //     }
-//     return NULL;
+//     return len;
 // }
 
 // Optimal. T.C -> O(N), S.C -> O(1).
-Node* detectLoop(Node* head){
+int detectLengthLoop(Node* head){
     Node* slow = head;
     Node* fast = head;
+    int len = 0;
     while(fast && fast->next){
         slow = slow->next;
         fast = fast->next->next;
+        len++;
         if(slow == fast) {
             slow = head;
             while(slow != fast){
                 slow = slow->next;
                 fast = fast->next;
-                return slow;
+                return len;
             }
         }
     }
-    return NULL;
+    return len;
 }
 
 int main() {
@@ -59,7 +63,6 @@ int main() {
     third->next = fourth;
     fourth->next = fifth;
     fifth->next = third;
-    Node* res = detectLoop(head);
-    cout << res->data << endl;
+    cout << detectLengthLoop(head) << endl;
     return 0;
 }
