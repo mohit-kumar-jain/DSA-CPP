@@ -32,24 +32,28 @@ class Node {
 // }
 
 // Optimal. T.C -> O(N), S.C -> O(1).
+int countLength(Node* head){
+    Node* temp = head;
+    int len = 1;
+    while (temp->next != head)
+    {
+        temp = temp->next;
+        len++;
+    }
+    return len;
+}
+
 int detectLengthLoop(Node* head){
     Node* slow = head;
     Node* fast = head;
-    int len = 0;
     while(fast && fast->next){
         slow = slow->next;
         fast = fast->next->next;
-        len++;
         if(slow == fast) {
-            slow = head;
-            while(slow != fast){
-                slow = slow->next;
-                fast = fast->next;
-                return len;
-            }
+           return countLength(slow);
         }
     }
-    return len;
+    return 0;
 }
 
 int main() {
@@ -62,7 +66,7 @@ int main() {
     second->next = third;
     third->next = fourth;
     fourth->next = fifth;
-    fifth->next = third;
+    fifth->next = head;
     cout << detectLengthLoop(head) << endl;
     return 0;
 }
