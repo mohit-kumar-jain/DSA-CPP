@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
         
 // T.C -> O(N), S.C -> O(1).
@@ -25,7 +25,7 @@ int myAtoi(string s, int i = 0) {
 }              
                    
 int main() {
-    string s = "1526 onetwo - - ";
+    string s = "1526 onetwo ";
     cout << myAtoi(s) << endl;
     return 0;
 }
