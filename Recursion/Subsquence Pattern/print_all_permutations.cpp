@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
                    
-// T.C -> O(n! * n), S.C -> O(n+n).
+// T.C -> O(n! * n * k), S.C -> O(n+n).
 // void printPermu(vector<int>& nums, vector<int>& ds,vector<vector<int>>& ans,int freq[]){
 //     if(nums.size() == ds.size()){
 //         for(auto it : ds) cout << it << " ";
@@ -19,7 +19,7 @@ using namespace std;
 //     }
 // }            
 
-// Method 2. T.C -> O(), S.C -> O().      
+// Method 2. T.C -> O(n! * n), S.C -> O(n).      
 void printPermu(int ind, vector<int>& nums, vector<vector<int>>& ans){
     if(nums.size() == ind){
         ans.push_back(nums);
