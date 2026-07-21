@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// T.C -> O(N!), S.C -> O(N).
+
 void solve(int col, vector<string>& board,int n, vector<vector<string>>& ans,
      vector<int>& leftRow, vector<int>& lowerDiagonal, vector<int>& upperDiagonal) {
         if(col == n){
@@ -9,16 +11,18 @@ void solve(int col, vector<string>& board,int n, vector<vector<string>>& ans,
         }
         for (int row = 0; row < n; row++)
         {
-            if(leftRow[row] == 0 && lowerDiagonal[row + col] == 0&& upperDiagonal[(n-1) + (col - row)] == 0 ) {
-                board[row][col] = 'Q';
-                leftRow[row] = 1;
-                lowerDiagonal[row + col] = 1;
-                upperDiagonal[(n - 1)+(col - row)] = 1;
-                solve(col + 1, board, n, ans , leftRow, lowerDiagonal, upperDiagonal);
-                board[row][col] = '.';
-                leftRow[row] = 0;
-                lowerDiagonal[row + col] = 0;
-                upperDiagonal[(n - 1)+(col - row)] = 0;
+            if(leftRow[row] == 0 && lowerDiagonal[row + col] == 0 
+                && upperDiagonal[(n-1) + (col - row)] == 0 )
+                {
+                    board[row][col] = 'Q';
+                    leftRow[row] = 1;
+                    lowerDiagonal[row + col] = 1;
+                    upperDiagonal[(n - 1)+(col - row)] = 1;
+                    solve(col + 1, board, n, ans , leftRow, lowerDiagonal, upperDiagonal);
+                    board[row][col] = '.';
+                    leftRow[row] = 0;
+                    lowerDiagonal[row + col] = 0;
+                    upperDiagonal[(n - 1)+(col - row)] = 0;
                 }
         }  
 }
