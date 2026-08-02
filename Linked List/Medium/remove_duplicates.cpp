@@ -8,13 +8,16 @@ public:
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
-}; 
+};
 
-void printLL(ListNode* head){
-    if(head == NULL) cout << " ";
-    ListNode* temp = head;
-    while(temp){
-        cout << temp->val<< " ";
+void printLL(ListNode *head)
+{
+    if (head == NULL)
+        cout << " ";
+    ListNode *temp = head;
+    while (temp)
+    {
+        cout << temp->val << " ";
         temp = temp->next;
     }
     cout << endl;
@@ -28,7 +31,9 @@ ListNode *deleteDuplicates(ListNode *head)
     {
         if (head->val == head->next->val)
         {
+            ListNode *del = head->next;
             head->next = head->next->next;
+            delete del;
         }
         else
         {
@@ -39,14 +44,15 @@ ListNode *deleteDuplicates(ListNode *head)
     return res;
 }
 
-int main() {
-    ListNode* head = new ListNode(1);
+int main()
+{
+    ListNode *head = new ListNode(1);
     head->next = new ListNode(1);
     head->next->next = new ListNode(5);
     head->next->next->next = new ListNode(5);
     head->next->next->next->next = new ListNode(9);
     printLL(head);
-    ListNode* res = deleteDuplicates(head);
+    ListNode *res = deleteDuplicates(head);
     printLL(res);
     return 0;
 }
