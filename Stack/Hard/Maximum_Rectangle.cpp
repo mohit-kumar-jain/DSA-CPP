@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-                   
+        
+// T.C -> O(N*(M+M)), S.C -> O(M).
+
 int largestHistogram(vector<int>& nums) {
     int n = nums.size();
     stack<int> st;
