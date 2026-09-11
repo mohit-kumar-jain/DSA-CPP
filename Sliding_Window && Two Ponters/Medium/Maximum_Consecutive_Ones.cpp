@@ -18,18 +18,36 @@ using namespace std;
 // }                   
 
 // Better. T.C -> O(2N) , S.C -> O(1).
+// int MaxConsecutive(vector<int>& arr,int k){
+//     int n = arr.size(), maxLength = 0,zeros = 0, l = 0;
+//     for (int r = 0; r < n; r++)
+//     {
+//         if(arr[r] == 0) zeros++;
+//         if(zeros > k) {
+//             if(arr[l] == 0){
+//                 zeros--;
+//             }
+//             l++;
+//         }
+//         maxLength = max(maxLength, r - l + 1);
+//     }
+//     return maxLength;
+// }                   
+
+// Optimal. T.C -> O(N) , S.C -> O(1).
 int MaxConsecutive(vector<int>& arr,int k){
     int n = arr.size(), maxLength = 0,zeros = 0, l = 0;
     for (int r = 0; r < n; r++)
     {
         if(arr[r] == 0) zeros++;
-        if(zeros > k) {
-            if(arr[l] == 0){
+        while(zeros > k ) {
+            if(arr[l] == 0) {
                 zeros--;
             }
             l++;
         }
-        maxLength = max(maxLength, r - l + 1);
+        if(zeros <= k)
+            maxLength = max(maxLength, r - l + 1);
     }
     return maxLength;
 }                   
