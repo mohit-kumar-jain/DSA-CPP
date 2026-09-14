@@ -24,7 +24,7 @@ using namespace std;
 //     return maxLength;
 // }
 
-// Better. T.C -> O(N), S.C -> O(26).
+// Better. T.C -> O(N+N), S.C -> O(26).
 // int characterReplacement(string s, int k)
 // {
 //     unordered_map<char, int> freq;
