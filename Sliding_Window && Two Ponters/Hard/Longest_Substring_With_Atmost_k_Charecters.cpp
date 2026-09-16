@@ -2,22 +2,22 @@
 using namespace std;
 
 // Brute. T.C -> O(N*N), S.C -> O(K).
-int lengthOfLongestSubstringKDistinct(string s, int k)
-{
-    int maxLength = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        unordered_map<char, int> freq;
-        for (int j = i; j < s.size(); j++)
-        {
-            freq[s[j]]++;
-            if (freq.size() > k)
-                break;
-            maxLength = max(maxLength, j - i + 1);
-        }
-        return maxLength;
-    }
-}
+// int lengthOfLongestSubstringKDistinct(string s, int k)
+// {
+//     int maxLength = 0;
+//     for (int i = 0; i < s.size(); i++)
+//     {
+//         unordered_map<char, int> freq;
+//         for (int j = i; j < s.size(); j++)
+//         {
+//             freq[s[j]]++;
+//             if (freq.size() > k)
+//                 break;
+//             maxLength = max(maxLength, j - i + 1);
+//         }
+//         return maxLength;
+//     }
+// }
 
 // Optimal. T.C -> O(N), S.C -> O(K).
 int lengthOfLongestSubstringKDistinct(string s, int k) {
