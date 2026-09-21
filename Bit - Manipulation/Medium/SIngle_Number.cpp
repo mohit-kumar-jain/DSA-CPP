@@ -1,16 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Brute. T>C -> O(N+sizdeOF(map)), S.C -> O(sizeOf(map)).
+// int singleNumber(vector<int>& nums) {
+//     unordered_map<int,int> mpp;
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         mpp[nums[i]]++;
+//     }
+//     for(auto it : mpp){
+//         if(it.second == 1){
+//             return it.first;
+//         }
+//     }
+//     return -1;
+// }
+
+// Optimal. T.C -> O(N), S.C -> O(1).
 int singleNumber(vector<int> &nums)
 {
-    int ones = 0;
-    int twos = 0;
-    for (const int num : nums)
-    {
-        ones ^= (num & ~twos);
-        twos ^= (num & ~ones);
+    int Xor = 0;
+    for(int i = 0; i < nums.size(); i++) {
+        Xor ^= nums[i];
     }
-    return ones;
+    return Xor;
 }
 
 int main()
