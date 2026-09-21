@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// T.C -> O(log(start ^ goal)), S.C -> O(1).
 int minBitFlips(int start, int goal)
 {
     int xorResult = start ^ goal;
