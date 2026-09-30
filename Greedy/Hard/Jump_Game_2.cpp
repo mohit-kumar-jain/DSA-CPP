@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// T.C -> O(N), S.C -> O(1).
-int canJump(vector<int> &nums)
+// Optimal. T.C -> O(N), S.C -> O(1).
+int canJump(vector<int>& nums)
 {
     int n = nums.size();
     if (n <= 1)
@@ -10,20 +10,16 @@ int canJump(vector<int> &nums)
         return 0;
     }
     int jumps = 0;
-    int currentEnd = 0;
-    int farthest = 0;
-    for (int i = 0; i < n - 1; i++)
-    {
-        farthest = max(farthest, i + nums[i]);
-        if (i == currentEnd)
+    int l = 0, r = 0;
+    while(r < n-1) {
+        int farthest = 0;
+        for (int i = l; i <= r; i++)
         {
-            jumps++;
-            currentEnd = farthest;
-            if (currentEnd >= n - 1)
-            {
-                break;
-            }
+            farthest = max(farthest, i + nums[i]);
         }
+        jumps++;
+        l = r + 1;
+        r = farthest;
     }
     return jumps;
 }
