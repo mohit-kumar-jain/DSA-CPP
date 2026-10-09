@@ -15,7 +15,7 @@ struct TreeNode{
 vector<vector<int>> levelOrderTraversal(TreeNode* root) {
     queue<TreeNode*> q;
     vector<vector<int>> res;
-    if(root == nullptr) return{{}};
+    if(root == nullptr) return{};
     q.push(root);
     while(!q.empty()){
         int size = q.size();
