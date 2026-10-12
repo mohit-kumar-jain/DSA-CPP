@@ -16,51 +16,43 @@ struct TreeNode
 };
 
 // 1.  T.C -> O(N), S.C -> O(height of tree).
-// bool isSameTree(TreeNode *p, TreeNode *q)
-// {
-//     if (p == nullptr && q == nullptr)
-//     {
-//         return true;
-//     }
-//     if (p == nullptr || q == nullptr)
-//     {
-//         return false;
-//     }
-//     if (p->val != q->val)
-//     {
-//         return false;
-//     }
-//     return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
-// }
-
-// 2. T.C -> O(N), S.C -> O(width of tree).
 bool isSameTree(TreeNode *p, TreeNode *q)
 {
-    queue<pair<TreeNode *, TreeNode *>> qNodes;
-    qNodes.push({p, q});
-    while (!qNodes.empty())
+    if (p == nullptr || q == nullptr)
     {
-        pair<TreeNode*, TreeNode*> temp = qNodes.front();
-        qNodes.pop();
-        TreeNode* nodeP = temp.first;
-        TreeNode* nodeQ = temp.second;
-        if (nodeP == nullptr && nodeQ == nullptr)
-        {
-            continue;
-        }
-        if (nodeP == nullptr || nodeQ == nullptr)
-        {
-            return false;
-        }
-        if (nodeP->val != nodeQ->val)
-        {
-            return false;
-        }
-        qNodes.push({nodeP->left, nodeQ->left});
-        qNodes.push({nodeP->right, nodeQ->right});
+        return true;
     }
-    return true;
+    return (p->val == q->val) && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
 }
+
+// 2. T.C -> O(N), S.C -> O(width of tree).
+// bool isSameTree(TreeNode *p, TreeNode *q)
+// {
+//     queue<pair<TreeNode *, TreeNode *>> qNodes;
+//     qNodes.push({p, q});
+//     while (!qNodes.empty())
+//     {
+//         pair<TreeNode*, TreeNode*> temp = qNodes.front();
+//         qNodes.pop();
+//         TreeNode* nodeP = temp.first;
+//         TreeNode* nodeQ = temp.second;
+//         if (nodeP == nullptr && nodeQ == nullptr)
+//         {
+//             continue;
+//         }
+//         if (nodeP == nullptr || nodeQ == nullptr)
+//         {
+//             return false;
+//         }
+//         if (nodeP->val != nodeQ->val)
+//         {
+//             return false;
+//         }
+//         qNodes.push({nodeP->left, nodeQ->left});
+//         qNodes.push({nodeP->right, nodeQ->right});
+//     }
+//     return true;
+// }
 
 // 3.  T.C -> O(N), S.C -> O(height of tree).
 // bool isSameTree(TreeNode *p, TreeNode *q)
@@ -88,12 +80,12 @@ bool isSameTree(TreeNode *p, TreeNode *q)
 int main()
 {
     TreeNode *p = new TreeNode(1);
-    p->left = new TreeNode(2);
-    p->right = new TreeNode(3);
+    p->left = new TreeNode(5);
+    p->right = new TreeNode(4);
 
     TreeNode *q = new TreeNode(1);
-    q->left = new TreeNode(2);
-    q->right = new TreeNode(3);
+    q->left = new TreeNode(5);
+    q->right = new TreeNode(4);
 
     cout << (isSameTree(p, q) ? "True" : "False") << endl;
 
